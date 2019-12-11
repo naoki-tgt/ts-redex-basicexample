@@ -11,11 +11,9 @@ const AddTodo : React.FC<{dispatch:Dispatch}>= ({ dispatch }) => {
       <form
         onSubmit={e => {
           e.preventDefault()
-          if(!inputRef.current)
+          if(!inputRef.current?.value.trim())
             return;
-          if (!inputRef.current.value.trim()) {
-            return
-          }
+          
           dispatch(addTodo(inputRef.current.value))
           inputRef.current.value = ''
         }}
